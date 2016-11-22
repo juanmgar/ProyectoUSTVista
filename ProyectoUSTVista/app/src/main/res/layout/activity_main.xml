@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.example.olaznog59.proyectoustvista.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--  <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GLOBAL UST"
+                android:textSize="35dp"
+                android:background="#000ac2"
+                android:layout_weight="3"
+                android:textColor="#cc0509"
+                android:textStyle="normal|bold" />
+
+        -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="153dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ustlogo"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:padding="10dp" />
+
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:text="Iniciar sesión"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:elevation="2dp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:fontFamily="arial bold"
+        android:textColor="#333"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp" />
+
+
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#312f2f"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:padding="25dp">
+
+        <LinearLayout
+            android:id="@+id/movi_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MOVIL:"
+                    android:textColor="@color/cast_expanded_controller_text_color"
+                    android:textStyle="normal|bold"
+                    android:textSize="20dp"
+                    android:fontFamily="arial bold" />
+
+                <EditText
+                    android:id="@+id/movil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+
+                    android:textSize="20dp"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/buttonEnviarNumero"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:text="conectar"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:background="#f9e40b12"
+            android:textColor="#ffffff"
+            android:onClick="buttonEnviarNumero"/>
+
+    </LinearLayout>
+</LinearLayout>

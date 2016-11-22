@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--  <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GLOBAL UST"
+                android:textSize="35dp"
+                android:background="#000ac2"
+                android:layout_weight="3"
+                android:textColor="#cc0509"
+                android:textStyle="normal|bold" />
+
+        -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="153dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ustlogo"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:padding="10dp" />
+
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/buttonEnviarMapa"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:text="conectar"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:background="#f9e40b12"
+        android:textColor="#ffffff"
+        android:onClick="buttonEnviarMapa"/>
+
+   <include layout="@layout/activity_maps" />
+
+</LinearLayout>
