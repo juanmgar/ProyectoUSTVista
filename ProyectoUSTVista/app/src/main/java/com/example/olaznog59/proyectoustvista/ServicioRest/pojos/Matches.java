@@ -3,6 +3,7 @@ package com.example.olaznog59.proyectoustvista.ServicioRest.pojos;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.annotation.Generated;
@@ -17,7 +18,7 @@ public class Matches {
 
     @SerializedName("matches")
     @Expose
-    private Arrays matches;
+    private ArrayList<String> matches;
     @SerializedName("error_description")
     @Expose
     private String error_description;
@@ -25,11 +26,11 @@ public class Matches {
     @Expose
     private int error_code;
 
-    public Arrays getMatches() {
+    public ArrayList<String> getMatches() {
         return matches;
     }
 
-    public void setMatches(Arrays matches) {
+    public void setMatches(ArrayList<String> matches) {
         this.matches = matches;
     }
 
@@ -48,4 +49,5 @@ public class Matches {
     public void setError_code(int error_code) {
         this.error_code = error_code;
     }
+
 }

@@ -2,14 +2,20 @@ package com.example.olaznog59.proyectoustvista.ServicioRest;
 
 
 
+import com.example.olaznog59.proyectoustvista.ServicioRest.jsonSend.ToGetContacts;
+import com.example.olaznog59.proyectoustvista.ServicioRest.jsonSend.ToGetCoord;
+import com.example.olaznog59.proyectoustvista.ServicioRest.jsonSend.ToRegister;
+import com.example.olaznog59.proyectoustvista.ServicioRest.jsonSend.ToSendCoord;
 import com.example.olaznog59.proyectoustvista.ServicioRest.pojos.GetCoord;
 import com.example.olaznog59.proyectoustvista.ServicioRest.pojos.Matches;
 import com.example.olaznog59.proyectoustvista.ServicioRest.pojos.Register;
 import com.example.olaznog59.proyectoustvista.ServicioRest.pojos.SendCoord;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.POST;
 
@@ -24,19 +30,19 @@ public interface ServicioRest {
 
     //PARA OBTENER EL ID DEL USUARIO
     @POST("/register")
-    Call<Register> getId(@Field("phone") String phone);
+    Call<Register> getId(@Body ToRegister register);
 
     //PARA OBTENER LOS IDS DE NUESTRA AGENDA
     @POST("/get_contacts")
-    Call<Matches> getMatches(@Field("phone") String phone, @Field("key") String id, @Field("contacts") Arrays contacts);
+    Call<Matches> getMatches(@Body ToGetContacts contacts);
 
     //PARA MANDAR NUESTRA UBICACIÓN
     @POST("/send_coordinates")
-    Call<SendCoord> sendCoord(@Field("phone") String phone, @Field("key") String id, @Field("lat") double lat, @Field("lon") double lon);
+    Call<SendCoord> sendCoord(@Body ToSendCoord coord);
 
     //PARA OBTENER COORDENADAS DE TODOS LOS USUARIOS DE MI AGENDA
     @POST("/get_coordinates")
-    Call<GetCoord> getCoord(@Field("phone") String phone, @Field("key") String id, @Field("matches") Arrays matches);
+    Call<GetCoord> getCoord(@Body ToGetCoord toGetCoord);
 
 
 }
