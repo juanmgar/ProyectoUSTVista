@@ -62,7 +62,7 @@
     <QuickContactBadge
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@color/cast_expanded_controller_progress_text_color"
+        app:srcCompat="@color/cast_expanded_controller_seek_bar_progress_background_tint_color"
         android:id="@+id/quickContactBadge" />
 
 </LinearLayout>

@@ -25,7 +25,7 @@ public class LoadingActivity extends Activity {
 }
 
     public void buttonEnviarLoading (View v){
-        Intent intent = new Intent (this,ContactoActivity.class);
+        Intent intent = new Intent (this,MapsActivity.class);
         startActivity(intent);
 
         finish();
