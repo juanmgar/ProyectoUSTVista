@@ -1,28 +1,21 @@
 package com.example.olaznog59.proyectoustvista.ServicioRest.jsonSend;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
-
-import javax.annotation.Generated;
 
 /**
  * Created by Usuario on 24/11/2016.
  */
 
-@Generated("org.jsonschema2pojo")
 
 public class ToGetContacts {
 
     @SerializedName("phone")
-    @Expose
     private String phone;
     @SerializedName("key")
-    @Expose
     private String key;
     @SerializedName("contacts")
-    @Expose
     private ArrayList<String> contacts;
 
     public String getPhone() {

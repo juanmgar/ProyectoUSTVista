@@ -1,6 +1,7 @@
 package com.example.olaznog59.proyectoustvista.ServicioRest.jsonSend;
 
-import com.google.gson.annotations.Expose;
+
+
 import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
@@ -9,11 +10,10 @@ import javax.annotation.Generated;
  * Created by Usuario on 24/11/2016.
  */
 
-@Generated("org.jsonschema2pojo")
 
 public class ToRegister {
+
     @SerializedName("phone")
-    @Expose
     private String phone;
 
     public String getPhone() {

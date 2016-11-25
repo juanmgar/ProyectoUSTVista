@@ -1,29 +1,23 @@
 package com.example.olaznog59.proyectoustvista.ServicioRest.pojos;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-import javax.annotation.Generated;
+
 
 /**
  * Created by Usuario on 23/11/2016.
  */
 
 
-@Generated("org.jsonschema2pojo")
 public class Matches {
 
     @SerializedName("matches")
-    @Expose
     private ArrayList<String> matches;
     @SerializedName("error_description")
-    @Expose
     private String error_description;
     @SerializedName("error_code")
-    @Expose
     private int error_code;
 
     public ArrayList<String> getMatches() {
@@ -50,4 +44,12 @@ public class Matches {
         this.error_code = error_code;
     }
 
+    @Override
+    public String toString() {
+        return "Matches{" +
+                "matches=" + matches +
+                ", error_description='" + error_description + '\'' +
+                ", error_code=" + error_code +
+                '}';
+    }
 }
