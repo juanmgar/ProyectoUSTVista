@@ -1,20 +1,14 @@
-package com.example.olaznog59.proyectoustvista.ServicioRest.jsonSend;
-
+package com.example.olaznog59.proyectoustvista.ServicioRest.pojos;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Usuario on 24/11/2016.
+ * Created by Usuario on 25/11/2016.
  */
 
-
-
-public class ToSendCoord {
-
+public class UsuariosRest {
     @SerializedName("phone")
     private String phone;
-    @SerializedName("key")
-    private String key;
     @SerializedName("lat")
     private double lat;
     @SerializedName("lon")
@@ -26,14 +20,6 @@ public class ToSendCoord {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
     }
 
     public double getLat() {
@@ -54,9 +40,8 @@ public class ToSendCoord {
 
     @Override
     public String toString() {
-        return "{" +
+        return "UsuariosRest{" +
                 "phone='" + phone + '\'' +
-                ", key='" + key + '\'' +
                 ", lat=" + lat +
                 ", lon=" + lon +
                 '}';

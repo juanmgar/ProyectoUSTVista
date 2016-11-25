@@ -28,20 +28,23 @@ import retrofit2.http.POST;
 
 public interface ServicioRest {
 
+    //PARA AÑADIR LA EXTENSIÓN EL URL DEL OBJETO "RETROFIT" TIENE QUE ACABAR CON "/" PARA QUE SUME AL STRING CREADO
+    //SI NO TIENE EL "/" SUSTITUIRÁ LA ÚLTIMA PARTE DE LA URL
+
     //PARA OBTENER EL ID DEL USUARIO
-    @POST("/register")
+    @POST("register")
     Call<Register> getId(@Body ToRegister register);
 
     //PARA OBTENER LOS IDS DE NUESTRA AGENDA
-    @POST("/get_contacts")
+    @POST("get_contacts")
     Call<Matches> getMatches(@Body ToGetContacts contacts);
 
     //PARA MANDAR NUESTRA UBICACIÓN
-    @POST("/send_coordinates")
+    @POST("send_coordinates")
     Call<SendCoord> sendCoord(@Body ToSendCoord coord);
 
     //PARA OBTENER COORDENADAS DE TODOS LOS USUARIOS DE MI AGENDA
-    @POST("/get_coordinates")
+    @POST("get_coordinates")
     Call<GetCoord> getCoord(@Body ToGetCoord toGetCoord);
 
 

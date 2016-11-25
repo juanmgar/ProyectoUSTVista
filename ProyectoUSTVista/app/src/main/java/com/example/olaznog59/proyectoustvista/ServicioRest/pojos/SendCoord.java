@@ -1,22 +1,42 @@
 package com.example.olaznog59.proyectoustvista.ServicioRest.pojos;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import javax.annotation.Generated;
 
 /**
  * Created by Usuario on 23/11/2016.
  */
 
-@Generated("org.jsonschema2pojo")
+
 
 public class SendCoord {
 
     @SerializedName("error_description")
-    @Expose
-    private String error_description;
+    private String errorDescription;
     @SerializedName("error_code")
-    @Expose
-    private int error_code;
+    private int errorCode;
+
+    public String getErrorDescription() {
+        return errorDescription;
+    }
+
+    public void setErrorDescription(String errorDescription) {
+        this.errorDescription = errorDescription;
+    }
+
+    public int getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    @Override
+    public String toString() {
+        return "SendCoord{" +
+                "errorDescription='" + errorDescription + '\'' +
+                ", errorCode=" + errorCode +
+                '}';
+    }
 }
