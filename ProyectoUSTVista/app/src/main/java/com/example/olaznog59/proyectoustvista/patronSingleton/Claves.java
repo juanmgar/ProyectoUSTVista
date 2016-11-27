@@ -1,5 +1,7 @@
 package com.example.olaznog59.proyectoustvista.patronSingleton;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 /**
@@ -27,7 +29,7 @@ public class Claves {
         if (instance == null){
             instance = new Claves(phone,key);
         } else {
-
+            Log.d("PatrónSingleton","Instancia ya creadada");
         }
         return instance;
     }

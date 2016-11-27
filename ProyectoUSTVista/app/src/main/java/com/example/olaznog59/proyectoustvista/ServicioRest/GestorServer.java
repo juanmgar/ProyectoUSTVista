@@ -151,7 +151,10 @@ public class GestorServer {
     }
 
 
-    public int enviarCoordenadas (double lat, double lon){
+    //----------------------------- PARA ENVIAR COORDENADAS TAMBIÉN NECESITAREMOS LA CLASE "CLAVES" ---------------
+    // -------------- CÓMO ACCEDEMOS A ELLO???? -------------------
+    public int enviarCoordenadas (Claves claves, double lat, double lon){
+        this.claves = claves;
 
         Log.d(TAG + " S.COORD","Vamos a mandar coordenadas Lat: " + lat + " Lon: " + lon);
 
