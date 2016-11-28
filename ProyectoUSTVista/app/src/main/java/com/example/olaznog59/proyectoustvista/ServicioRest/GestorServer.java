@@ -13,7 +13,7 @@ import com.example.olaznog59.proyectoustvista.ServicioRest.pojos.Matches;
 import com.example.olaznog59.proyectoustvista.ServicioRest.pojos.Register;
 import com.example.olaznog59.proyectoustvista.ServicioRest.pojos.SendCoord;
 import com.example.olaznog59.proyectoustvista.ServicioRest.pojos.UsuariosRest;
-import com.example.olaznog59.proyectoustvista.patronSingleton.Claves;
+import com.example.olaznog59.proyectoustvista.patronSingleton.Clave;
 
 import java.util.ArrayList;
 
@@ -29,11 +29,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 
+//JUNTANDO PARTES EN EL REPOSITORIO DE GITHUB
+    //--------------------------------------------------------------------------------------------------------
+
 public class GestorServer {
 
-    public static final String url = "[IP]:[PUERTO]/talentum_geo/rest/services/";
+    public static final String url = "http://elservidorderoll.ddns.net:8088/talentumgeo/rest/services/";
     public static final String TAG = "ServicioREST";
-    private Claves claves;
+    private Clave clave;
     private int codMatches = -1;
     private int codSendCoord = -1;
     ArrayList<UsuariosRest> arrayList;
@@ -45,7 +48,8 @@ public class GestorServer {
             // RECIBIR EL CÓDIGO Y ENVIAR LA SIGUIENTE PETICIÓN AL SERVIDOR - CON LA CLASE "CLAVES" INSTANCIADA
             //Y ALLÍ TAMBIÉN COJEREMOS LOS VALORES DEL OBJETO "CLAVES" Y LOS ALMACENAREMOS EN LA SHARED PREFERENCES
         // 1,2,3 ... -> DEBERÁ PERMANECER EN LA PÁGINA DE LOGIN, PARA QUE SE VUELVA A INTRODUCIR TLF Y VUELVA A HACER PETICIÓN
-    public Claves obtenerIdUsuario(String telefono){
+    public void obtenerIdUsuario(final String telefono){
+        clave = Clave.getInstance();
         Log.d(TAG + " Obtener id","Vamos a registrar el tlf: "+telefono);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url) //URL A CONECTARSE
@@ -70,12 +74,12 @@ public class GestorServer {
                 //SE CREA UNA REFERENCIA, AUN QUE NO SE INICIALICE, AL TENER LOS PARÁMETROS CON GETTER Y SETTER,
                 // PODRÍAMOS ACCEDER A ELLOS SIN HACER NEW???????????
                 //ENTIENDO ------ QUE HE HECHO LA CLASE PARA QUE NO SE PUEDA MODIFICAR EL VALOR DEL TLF Y LA KEY ----- ????
-                claves.setErrorCode(reg.getErrorCode()); //CODIGO DE ERROR RECIBIDO
+                clave.setErrorCode(reg.getErrorCode()); //CODIGO DE ERROR RECIBIDO
+                clave.setDescriptionCode(reg.getErrorDescription());
 //-----------------------------------------------------------------------------------------------------
                 if (reg.getErrorCode()==0){
                     //AQUÍ TENDREMOS QUE GUARDAR EL TLF Y LA KEY EN SHARED PREFERENCES Y INICIAR EL OBJETO "CLAVES"
-                    claves = Claves.getInstance(register.getPhone(), //OBJETO QUE MANDAMOS PARA HACER LA LLAMADA
-                            reg.getKey()); //OBJETO QUE RECIBIMOS
+                    clave.inicialice(telefono,reg.getKey());
                 } else {
                     //Aquí deberíamos mostrar un toast, posiblemente mandando un código a la pantalla para que vuelva a pedir el telefono.
                     Log.d(TAG + "Obtener id","Ha habido un error en el registro: "+reg.getErrorDescription());
@@ -87,8 +91,6 @@ public class GestorServer {
                 Log.d(TAG + " Obtener id","Ha fallado la conexión con el servidor: "+t.getMessage());
             }
         });
-
-        return claves;
     }
 
     //COMO EL OBJETO CLAVES LO NECESITAMOS EN ÉSTA CLASE, LO GENERAREMOS AQUÍ
@@ -97,10 +99,10 @@ public class GestorServer {
 
 //---------------------------------TAREA SÍNCRONA???-------------------------------------------
     //CÓMO ESPERAMOS EN "MAIN" A LA RESPUESTA DEL SERVIDOR SINO???????
-    public int obtenerMatches (final Claves claves, ArrayList<String> contacts){
+    public int obtenerMatches (String[] contacts){
 
-        this.claves = claves;
-        Log.d(TAG + " MATCHES","Vamos a solicitar los usuarios registrados en la app P: "+claves.getPhone());
+        clave = Clave.getInstance();
+        Log.d(TAG + " MATCHES","Vamos a solicitar los usuarios registrados en la app P: "+clave.getPhone());
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
@@ -112,8 +114,8 @@ public class GestorServer {
         Log.d(TAG + " MATCHES","Creado ServicioRest y Retrofit");
         //generamos objeto solicitado por el servidor
         ToGetContacts toGetContacts = new ToGetContacts();
-        toGetContacts.setPhone(claves.getPhone());
-        toGetContacts.setKey(claves.getKey());
+        toGetContacts.setPhone(clave.getPhone());
+        toGetContacts.setKey(clave.getKey());
         toGetContacts.setContacts(contacts);
 
         Log.d(TAG + " MATCHES","Objeto a mandar: "+ toGetContacts.toString());
@@ -128,11 +130,12 @@ public class GestorServer {
                 Matches matches = (Matches) response.body();
 
                 //En el "main" comprobaremos el código
-                claves.setErrorCode(matches.getError_code());
+                clave.setErrorCode(matches.getError_code());
+                clave.setDescriptionCode(matches.getError_description());
                 if (matches.getError_code() == 0){
                     //si se ha realizado la operación con éxito, se guardarán los matches
                     //En este caso el objeto "Claves" estará referenciado aquí y donde lanzamos la petición
-                    claves.setMatches(matches.getMatches()); // guardamos en el objeto CLAVES los valores recibidos
+                    clave.setMatches(matches.getMatches()); // guardamos en el objeto CLAVES los valores recibidos
                 }
 
                 //------------------------MODIFICAMOS CÓDIGO A ENVIAR-------------------------------
@@ -154,8 +157,8 @@ public class GestorServer {
 
     //----------------------------- PARA ENVIAR COORDENADAS TAMBIÉN NECESITAREMOS LA CLASE "CLAVES" ---------------
     // -------------- CÓMO ACCEDEMOS A ELLO???? -------------------
-    public int enviarCoordenadas (Claves claves, double lat, double lon){
-        this.claves = claves;
+    public int enviarCoordenadas (double lat, double lon){
+        clave = Clave.getInstance();
 
         Log.d(TAG + " S.COORD","Vamos a mandar coordenadas Lat: " + lat + " Lon: " + lon);
 
@@ -166,8 +169,8 @@ public class GestorServer {
 
         //Creamos objeto a mandar
         ToSendCoord toSendCoord = new ToSendCoord();
-        toSendCoord.setPhone(claves.getPhone());
-        toSendCoord.setKey(claves.getKey());
+        toSendCoord.setPhone(clave.getPhone());
+        toSendCoord.setKey(clave.getKey());
         toSendCoord.setLat(lat);
         toSendCoord.setLon(lon);
 
@@ -208,6 +211,7 @@ public class GestorServer {
     //en caso de que la conexión haya ido mal, devolverá null.
     public ArrayList<UsuariosRest> obtenerCoordenadas(){
 
+        clave = Clave.getInstance();
         Log.d(TAG + " G.COORD","Mandando petición de coordenadas de los usuarios");
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -218,9 +222,9 @@ public class GestorServer {
         //OBJETO A MANDAR
         //debe ser independiente al generado "patrón singleton" para que se pueda serializar
         ToGetCoord toGetCoord = new ToGetCoord();
-        toGetCoord.setPhone(claves.getPhone());
-        toGetCoord.setKey(claves.getKey());
-        toGetCoord.setMatches(claves.getMatches());
+        toGetCoord.setPhone(clave.getPhone());
+        toGetCoord.setKey(clave.getKey());
+        toGetCoord.setMatches(clave.getMatches());
 
         Log.d(TAG + " G.COORD","Mandando petición con: " + toGetCoord.toString());
 

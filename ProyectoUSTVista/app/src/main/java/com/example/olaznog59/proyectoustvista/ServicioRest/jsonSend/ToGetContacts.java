@@ -19,8 +19,7 @@ public class ToGetContacts {
     @SerializedName("key")
     private String key;
     @SerializedName("contacts")
-
-    private ArrayList<String> contacts;
+    private String [] contacts;
 
     public String getPhone() {
         return phone;
@@ -38,11 +37,11 @@ public class ToGetContacts {
         this.key = key;
     }
 
-    public ArrayList<String> getContacts() {
+    public String[] getContacts() {
         return contacts;
     }
 
-    public void setContacts(ArrayList<String> contacts) {
+    public void setContacts(String[] contacts) {
         this.contacts = contacts;
     }
 

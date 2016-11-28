@@ -5,31 +5,31 @@ import android.util.Log;
 import java.util.ArrayList;
 
 /**
- * Created by Usuario on 25/11/2016.
+ * Created by Usuario on 28/11/2016.
  */
 
-//
-
-//CONSTRUCTOR CON LOS PARÁMETROS QUE NECESITAMOS PARA SOLICITAR AL SERVIDOR
-    //Y POR ÚLTIMO LOS "MATCHES" QUE SE PODRÁN MODIFICAR A POSTERIORI
-
-public class Claves {
-    private static Claves instance = null;
+public class Clave {
+    private static Clave instance = null;
     private String phone;
     private String  key;
     private int errorCode;
+    private String descriptionCode;
     private ArrayList<String> matches;
 
-    public Claves(String phone, String key) {
+    private Clave() {
+        Log.d("Clave","Creado objeto Clave");
+    }
+
+    public void inicialice(String phone, String key){
         this.phone = phone;
         this.key = key;
     }
 
-    public static Claves getInstance(String phone, String key){
+    public static Clave getInstance(){
         if (instance == null){
-            instance = new Claves(phone,key);
+            instance = new Clave();
         } else {
-            Log.d("PatrónSingleton","Instancia ya creadada");
+            Log.d("PatrónSingleton","Instancia ya creada");
         }
         return instance;
     }
@@ -56,5 +56,13 @@ public class Claves {
 
     public void setErrorCode(int errorCode) {
         this.errorCode = errorCode;
+    }
+
+    public String getDescriptionCode() {
+        return descriptionCode;
+    }
+
+    public void setDescriptionCode(String descriptionCode) {
+        this.descriptionCode = descriptionCode;
     }
 }
