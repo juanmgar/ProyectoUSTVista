@@ -20,6 +20,7 @@ import java.util.ArrayList;
  * Created by Usuario on 27/11/2016.
  */
 
+//PARTES JUNTADAS EN UN ÚNICO PROYECTO
 public class ContactosAgenda {
 
     private Context context;
