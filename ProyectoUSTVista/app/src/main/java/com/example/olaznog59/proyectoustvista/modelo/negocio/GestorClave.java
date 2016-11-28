@@ -6,8 +6,16 @@ package com.example.olaznog59.proyectoustvista.modelo.negocio;
 
 import android.content.Context;
 
+<<<<<<< HEAD
 import com.example.olaznog59.proyectoustvista.modelo.persistencia.AlmacenKey;
 
+=======
+
+import com.example.olaznog59.proyectoustvista.modelo.persistencia.AlmacenKey;
+
+import java.util.ArrayList;
+
+>>>>>>> origin/master
 public class GestorClave {
 
     Context context;

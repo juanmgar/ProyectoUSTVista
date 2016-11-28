@@ -7,12 +7,22 @@ package com.example.olaznog59.proyectoustvista.modelo.persistencia;
 
 import android.content.Context;
 import android.util.Log;
+<<<<<<< HEAD
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+=======
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+>>>>>>> origin/master
 
 public class AlmacenKey{
 
