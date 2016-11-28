@@ -28,6 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Usuario on 24/11/2016.
  */
 
+
 public class GestorServer {
 
     public static final String url = "[IP]:[PUERTO]/talentum_geo/rest/services/";
