@@ -28,6 +28,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Usuario on 24/11/2016.
  */
 
+//JUNTANDO PARTES EN EL REPOSITORIO DE GITHUB
+    //--------------------------------------------------------------------------------------------------------
 public class GestorServer {
 
     public static final String url = "http://elservidorderoll.ddns.net:8088/talentumgeo/rest/services/";
