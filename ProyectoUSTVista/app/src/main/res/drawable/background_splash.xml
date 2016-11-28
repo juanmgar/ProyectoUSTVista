@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@color/whiteGonzalo"/>
+
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/ustlogo1"
+
+
+            />
+
+        <TextView
+            android:text="CARGANDO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            />
+
+
+    </item>
+
+
+
+</layer-list>

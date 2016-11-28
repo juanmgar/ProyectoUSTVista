@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+
+        android:minHeight="?attr/actionBarSize"
+
+        android:layout_width="592dp"
+        android:layout_height="71dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+    <Button
+        android:id="@+id/movil_sign_in_button"
+        style="?android:textAppearanceSmall"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:text="@string/action_sign_in"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteY="88dp"
+        tools:layout_editor_absoluteX="127dp" />
+
+    <TextView
+        android:text="Iniciar sesión"
+        android:layout_width="166dp"
+        android:layout_height="22dp"
+        android:id="@+id/textView4"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteY="140dp"
+        tools:layout_editor_absoluteX="213dp" />
+
+
+    <LinearLayout
+        android:layout_width="552dp"
+        android:orientation="vertical"
+        android:id="@+id/scrollView3"
+        android:background="#312f2f"
+
+        android:padding="25dp"
+
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="166dp"
+        tools:layout_editor_absoluteX="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MOVIL:"
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:textStyle="normal|bold"
+            android:textSize="20dp"
+            android:fontFamily="arial bold"
+            android:layout_marginBottom="10dp" />
+
+        <EditText
+            android:id="@+id/movil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+
+        <Button
+            android:id="@+id/buttonEnviarNumero"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+
+            android:text="conectar"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:background="#f9e40b12"
+            android:textColor="#ffffff"
+            android:onClick="buttonEnviarNumero" />
+
+    </LinearLayout>
+
+
+
+
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+</android.support.constraint.ConstraintLayout>

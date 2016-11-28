@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+
+        android:minHeight="?attr/actionBarSize"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <!--  <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GLOBAL UST"
+                android:textSize="35dp"
+                android:background="#000ac2"
+                android:layout_weight="3"
+                android:textColor="#cc0509"
+                android:textStyle="normal|bold" />
+
+        -->
+
+
+
+    <Button
+        android:id="@+id/linearLayout"
+        style="?android:textAppearanceSmall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+
+        android:text="conectar"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:background="#f9e40b12"
+        android:textColor="#ffffff"
+        android:onClick="buttonEnviarLoading"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar2"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintHorizontal_bias="0.18"
+
+
+        />
+
+    <TextView
+        android:text="CARGANDO"
+        android:layout_width="592dp"
+        android:layout_height="30dp"
+        android:id="@+id/textView2"
+        android:textStyle="normal|bold|italic"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        tools:layout_conversion_absoluteX="0dp"
+        tools:layout_conversion_absoluteY="133dp"
+        tools:layout_conversion_absoluteWidth="592dp"
+        tools:layout_conversion_absoluteHeight="30dp"
+        tools:layout_editor_absoluteY="133dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar2"
+        android:padding="20dp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/linearLayout"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="16dp" />
+
+
+</android.support.constraint.ConstraintLayout>
